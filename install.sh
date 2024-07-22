@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-wget http://18.167.109.180:8866/orange-external-node.tar.gz
+wget http://18.167.109.180:8866/orange-external-node/orange-external-node.tar.gz
 tar -xzvf orange-external-node.tar.gz
 cd orange-external-node/
 wget http://18.167.109.180:9002/snapshot.tar.gz
