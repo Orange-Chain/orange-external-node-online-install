@@ -1,4 +1,22 @@
 #!/usr/bin/env bash
+is64bit=$(getconf LONG_BIT)
+if [ "${is64bit}" != '64' ];then
+	echo "The system must be 64-bit";
+    exit 1
+fi
+
+isAmd64=$(dpkg --print-architecture)
+if [ "${isAmd64}" != 'amd64' ];then
+	echo "The system must be AMD";
+    exit 1
+fi
+
+UbuntuCheck=$(cat /etc/issue|grep Ubuntu|awk '{print $2}'|cut -f 1 -d '.')
+if [ "${UbuntuCheck}" ] && [ "${UbuntuCheck}" -lt "20" ];then
+	echo "The system version must be Ubuntu and no less than v20"
+	exit 1
+fi
+
 wget http://18.167.109.180:8866/orange-external-node/orange-external-node.tar.gz
 tar -xzvf orange-external-node.tar.gz
 cd orange-external-node/
