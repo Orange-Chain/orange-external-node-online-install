@@ -33,12 +33,16 @@ if [ "$netType" == "1" ];then
     wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/mainnet/run.sh -O ./geth/run.sh
     wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/mainnet/config/config.toml -O ./geth/config/config.toml
     wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/mainnet/config/genesis.json -O ./geth/config/genesis.json
+    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/op-node/mainnet/run.sh -O ./op-node/run.sh
+    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/op-node/mainnet/config/rollup.json -O ./op-node/config/rollup.json
     wget http://18.167.109.180:9002/snapshot.tar.gz
     tar -xzvf snapshot.tar.gz
 elif [ "$netType" == "2" ]; then
     wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/testnet/run.sh -O ./geth/run.sh
     wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/testnet/config/config.toml -O ./geth/config/config.toml
     wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/testnet/config/genesis.json -O ./geth/config/genesis.json
+    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/op-node/testnet/run.sh -O ./op-node/run.sh
+    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/op-node/testnet/config/rollup.json -O ./op-node/config/rollup.json
     wget http://18.167.109.180:9002/snapshot-testnet.tar.gz
     tar -xzvf snapshot-testnet.tar.gz
 else
