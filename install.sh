@@ -26,11 +26,6 @@ cd orange-external-node/
 echo -n 0x$(openssl rand -hex 32 | tr -d "\n") > ./geth/config/jwtsecret
 cp ./orange-external-node/geth/config/jwtsecret ./op-node/config/jwtsecret
 
-wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/geth -O ./geth/geth
-wget http://18.167.109.180:8866/orange-external-node/orange-external-node/op-node/op-node -O ./op-node/op-node
-chmod +x ./geth/geth
-chmod +x ./op-node/op-node
-
 echo "Select the network you want to join \n"
 echo -e " 1.Orange Mainnet\n 2.Orange Testnet\n"
 read -p "Enter index: " netType;
@@ -51,6 +46,8 @@ else
     exit 1;
 fi
 mv data_bak geth/data
+wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/geth -O ./geth/geth
+wget http://18.167.109.180:8866/orange-external-node/orange-external-node/op-node/op-node -O ./op-node/op-node
 chmod +x ./geth/run.sh
 chmod +x ./geth/geth
 chmod +x ./op-node/run.sh
