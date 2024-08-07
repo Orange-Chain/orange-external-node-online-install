@@ -24,7 +24,7 @@ mkdir -p ./orange-external-node/op-node/config
 cd orange-external-node/
 
 echo -n 0x$(openssl rand -hex 32 | tr -d "\n") > ./geth/config/jwtsecret
-cp ./orange-external-node/geth/config/jwtsecret ./op-node/config/jwtsecret
+cp ./geth/config/jwtsecret ./op-node/config/jwtsecret
 
 echo "Select the network you want to join \n"
 echo -e " 1.Orange Mainnet\n 2.Orange Testnet\n"
