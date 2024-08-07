@@ -17,15 +17,36 @@ if [ "${UbuntuCheck}" ] && [ "${UbuntuCheck}" -lt "20" ];then
 	exit 1
 fi
 
-wget http://18.167.109.180:8866/orange-external-node/orange-external-node.tar.gz
-tar -xzvf orange-external-node.tar.gz
+mkdir -p ./orange-external-node/geth/logs
+mkdir -p ./orange-external-node/geth/config
+mkdir -p ./orange-external-node/op-node/logs
+mkdir -p ./orange-external-node/op-node/config
+
+echo -n 0x$(openssl rand -hex 32 | tr -d "\n") > ./orange-external-node/geth/config/jwtsecret
+cp ./orange-external-node/geth/config/jwtsecret ./orange-external-node/op-node/config/jwtsecret
+
+echo "Select the network you want to join \n"
+echo -e " 1.Orange Mainnet\n 2.Orange Testnet\n"
+read -p "Enter index: " netType;
+if [ "$netType" == "1" ];then
+    wget http://18.167.109.180:8866/orange-external-node/geth/mainnet/run.sh -O ./orange-external-node/geth/run.sh
+    wget http://18.167.109.180:8866/orange-external-node/geth/mainnet/config/config.toml -O ./orange-external-node/geth/config/config.toml
+    wget http://18.167.109.180:8866/orange-external-node/geth/mainnet/config/genesis.json -O ./orange-external-node/geth/config/genesis.json
+elif [ "$netType" == "2" ]; then
+    wget http://18.167.109.180:8866/orange-external-node/geth/testnet/run.sh -O ./orange-external-node/geth/run.sh
+    wget http://18.167.109.180:8866/orange-external-node/geth/testnet/config/config.toml -O ./orange-external-node/geth/config/config.toml
+    wget http://18.167.109.180:8866/orange-external-node/geth/testnet/config/genesis.json -O ./orange-external-node/geth/config/genesis.json
+else
+    echo "The current network does not support"
+    exit 1;
+fi
+
 cd orange-external-node/
 wget http://18.167.109.180:9002/snapshot.tar.gz
 tar -xzvf snapshot.tar.gz
 mv data_bak geth/data
 
-mkdir ./geth/logs
-mkdir ./op-node/logs
+
 
 chmod +x ./geth/run.sh
 chmod +x ./geth/geth
