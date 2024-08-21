@@ -30,19 +30,19 @@ echo "Select the network you want to join \n"
 echo -e " 1.Orange Mainnet\n 2.Orange Testnet\n"
 read -p "Enter index: " netType;
 if [ "$netType" == "1" ];then
-    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/mainnet/run.sh -O ./geth/run.sh
-    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/mainnet/config/config.toml -O ./geth/config/config.toml
-    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/mainnet/config/genesis.json -O ./geth/config/genesis.json
-    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/op-node/mainnet/run.sh -O ./op-node/run.sh
-    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/op-node/mainnet/config/rollup.json -O ./op-node/config/rollup.json
+    wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/mainnet/run.sh -O ./geth/run.sh
+    wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/mainnet/config/config.toml -O ./geth/config/config.toml
+    wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/mainnet/config/genesis.json -O ./geth/config/genesis.json
+    wget https://download.orangechain.xyz/orange-external-node/orange-external-node/op-node/mainnet/run.sh -O ./op-node/run.sh
+    wget https://download.orangechain.xyz/orange-external-node/orange-external-node/op-node/mainnet/config/rollup.json -O ./op-node/config/rollup.json
     wget http://18.167.109.180:9002/snapshot.tar.gz
     tar -xzvf snapshot.tar.gz
 elif [ "$netType" == "2" ]; then
-    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/testnet/run.sh -O ./geth/run.sh
-    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/testnet/config/config.toml -O ./geth/config/config.toml
-    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/testnet/config/genesis.json -O ./geth/config/genesis.json
-    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/op-node/testnet/run.sh -O ./op-node/run.sh
-    wget http://18.167.109.180:8866/orange-external-node/orange-external-node/op-node/testnet/config/rollup.json -O ./op-node/config/rollup.json
+    wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/testnet/run.sh -O ./geth/run.sh
+    wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/testnet/config/config.toml -O ./geth/config/config.toml
+    wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/testnet/config/genesis.json -O ./geth/config/genesis.json
+    wget https://download.orangechain.xyz/orange-external-node/orange-external-node/op-node/testnet/run.sh -O ./op-node/run.sh
+    wget https://download.orangechain.xyz/orange-external-node/orange-external-node/op-node/testnet/config/rollup.json -O ./op-node/config/rollup.json
     wget http://18.167.109.180:9002/snapshot-testnet.tar.gz
     tar -xzvf snapshot-testnet.tar.gz
 else
@@ -50,8 +50,8 @@ else
     exit 1;
 fi
 mv data_bak geth/data
-wget http://18.167.109.180:8866/orange-external-node/orange-external-node/geth/geth -O ./geth/geth
-wget http://18.167.109.180:8866/orange-external-node/orange-external-node/op-node/op-node -O ./op-node/op-node
+wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/geth -O ./geth/geth
+wget https://download.orangechain.xyz/orange-external-node/orange-external-node/op-node/op-node -O ./op-node/op-node
 chmod +x ./geth/run.sh
 chmod +x ./geth/geth
 chmod +x ./op-node/run.sh
