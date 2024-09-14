@@ -6,7 +6,7 @@
   --rpc.addr=127.0.0.1 \
   --rpc.port=4000 \
   --rpc.enable-admin \
-  --l1=http://alb-rpc-oracle-orange-2050801690.us-east-1.elb.amazonaws.com \
+  --l1=https://rpc-oracle.orangechain.xyz \
   --p2p.listen.ip=0.0.0.0 \
   --p2p.listen.tcp=13000 \
   --p2p.listen.udp=12000 \

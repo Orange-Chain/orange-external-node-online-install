@@ -12,4 +12,4 @@
 --rollup.sequencerhttp=https://testnet-rpc.orangechain.xyz \
 --txpool.pricelimit 2000000 \
 --gpo.minsuggestedpriorityfee 2000000 \
---verbosity 4  --syncmode=full --gcmode=archive > ./logs/op-geth.log 2>&1
+--verbosity 3  --syncmode=full > ./logs/op-geth.log 2>&1
