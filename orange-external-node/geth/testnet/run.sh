@@ -9,7 +9,7 @@
 --nat extip:127.0.0.1 \
 --rpc.allow-unprotected-txs \
 --rollup.disabletxpoolgossip=true \
---rollup.sequencerhttp=http://34.230.36.80:8545 \
+--rollup.sequencerhttp=https://testnet-rpc.orangechain.xyz \
 --txpool.pricelimit 2000000 \
 --gpo.minsuggestedpriorityfee 2000000 \
 --verbosity 4  --syncmode=full --gcmode=archive > ./logs/op-geth.log 2>&1
