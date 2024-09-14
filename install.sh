@@ -35,21 +35,33 @@ if [ "$netType" == "1" ];then
     wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/mainnet/config/genesis.json -O ./geth/config/genesis.json
     wget https://download.orangechain.xyz/orange-external-node/orange-external-node/op-node/mainnet/run.sh -O ./op-node/run.sh
     wget https://download.orangechain.xyz/orange-external-node/orange-external-node/op-node/mainnet/config/rollup.json -O ./op-node/config/rollup.json
-    wget http://18.167.109.180:9002/snapshot.tar.gz
-    tar -xzvf snapshot.tar.gz
+    cd geth/
+    wget http://18.167.109.180:9002/snapshot-op-geth.tar.gz
+    tar -xzvf snapshot-op-geth.tar.gz
+    mv data_bak data
+    cd ../op-node
+    wget http://18.167.109.180:9002/snapshot-op-node.tar.gz
+    tar -xzvf snapshot-op-node.tar.gz
+    mv data_bak opnode_peerstore_db
 elif [ "$netType" == "2" ]; then
     wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/testnet/run.sh -O ./geth/run.sh
     wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/testnet/config/config.toml -O ./geth/config/config.toml
     wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/testnet/config/genesis.json -O ./geth/config/genesis.json
     wget https://download.orangechain.xyz/orange-external-node/orange-external-node/op-node/testnet/run.sh -O ./op-node/run.sh
     wget https://download.orangechain.xyz/orange-external-node/orange-external-node/op-node/testnet/config/rollup.json -O ./op-node/config/rollup.json
-    wget http://18.167.109.180:9002/snapshot-testnet.tar.gz
-    tar -xzvf snapshot-testnet.tar.gz
+    cd geth/
+    wget http://18.167.109.180:9002/testnet-snapshot-op-geth.tar.gz
+    tar -xzvf testnet-snapshot-op-geth.tar.gz
+    mv data_bak data
+    cd ../op-node
+    wget http://18.167.109.180:9002/testnet-snapshot-op-node.tar.gz
+    tar -xzvf testnet-snapshot-op-node.tar.gz
+    mv data_bak opnode_peerstore_db
 else
     echo "The current network does not support"
     exit 1;
 fi
-mv data_bak geth/data
+cd ..
 wget https://download.orangechain.xyz/orange-external-node/orange-external-node/geth/geth -O ./geth/geth
 wget https://download.orangechain.xyz/orange-external-node/orange-external-node/op-node/op-node -O ./op-node/op-node
 chmod +x ./geth/run.sh
