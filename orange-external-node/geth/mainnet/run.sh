@@ -9,7 +9,7 @@
 --nat extip:127.0.0.1 \
 --rpc.allow-unprotected-txs \
 --rollup.disabletxpoolgossip=true \
---rollup.sequencerhttp=http://alb-sequencer-rpc-orange-155812121.us-east-1.elb.amazonaws.com \
+--rollup.sequencerhttp=https://sequencer.orangechain.xyz \
 --txpool.pricelimit 2000000 \
 --gpo.minsuggestedpriorityfee 2000000 \
 --verbosity 4  --syncmode=full --gcmode=archive > ./logs/op-geth.log 2>&1
